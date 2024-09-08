@@ -47,7 +47,5 @@ backend : Go frontend:react
 <p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=manishkr108&theme=dark&show_icons=true&locale=en" alt="manishkr108" /></p>
 
 
-<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=manishkr108&theme=dark&show_icons=true&locale=en" alt="manishkr108" /></p>
-
 <p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=manishkr108&theme=dark&alt="manishkr108" /></p>
 
