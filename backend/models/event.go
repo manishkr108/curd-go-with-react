@@ -2,6 +2,7 @@ package models
 
 import (
 	"backend/db"
+	"log"
 	"time"
 )
 
@@ -39,6 +40,7 @@ func (e *Event) Save() error {
 func GetAllEvents() ([]Event, error) {
 	query := "SELECT id, name, description, location, startTime, user_id FROM events"
 	rows, err := db.DB.Query(query)
+	log.Print(rows)
 	if err != nil {
 		return nil, err
 	}
@@ -48,6 +50,7 @@ func GetAllEvents() ([]Event, error) {
 
 	for rows.Next() {
 		var event Event
+
 		err := rows.Scan(&event.ID, &event.Name, &event.Description, &event.Location, &event.StartTime, &event.UserID)
 		if err != nil {
 			return nil, err
@@ -68,6 +71,7 @@ func GetEventById(id int64) (*Event, error) {
 	row := db.DB.QueryRow(query, id)
 
 	var event Event
+
 	err := row.Scan(&event.ID, &event.Name, &event.Description, &event.Location, &event.StartTime, &event.UserID)
 
 	if err != nil {
@@ -75,4 +79,17 @@ func GetEventById(id int64) (*Event, error) {
 	}
 
 	return &event, nil
+}
+
+// Update updates an existing event in the database.
+func (event Event) Update() error {
+	query := `UPDATE events SET name = ?, description = ?, location = ?, startTime = ? WHERE id = ?`
+	stmt, err := db.DB.Prepare(query)
+	if err != nil {
+		return err
+	}
+	defer stmt.Close()
+
+	_, err = stmt.Exec(event.Name, event.Description, event.Location, event.StartTime, event.ID)
+	return err
 }

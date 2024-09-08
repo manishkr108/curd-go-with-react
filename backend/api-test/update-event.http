@@ -1,0 +1,10 @@
+PUT  http://localhost:8080/events/2
+Content-Type: application/json
+
+{
+    "name": "Update 2",
+    "Description": "This is Update event 2",
+    "location": "Location Update 2",
+    "organizer": "Organizer  Update 2",
+    "startTime": "2022-10-26T15:40:00.00Z"
+}

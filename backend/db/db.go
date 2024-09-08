@@ -13,7 +13,7 @@ var DB *sql.DB
 // InitDB initializes the database connection.
 func InitDB() error {
 	var err error
-	DB, err = sql.Open("mysql", "root:@tcp(127.0.0.1:3306)/goproject")
+	DB, err = sql.Open("mysql", "root:@tcp(127.0.0.1:3306)/goproject?parseTime=true")
 	if err != nil {
 		return err
 	}
