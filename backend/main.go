@@ -8,6 +8,7 @@ import (
 )
 
 func main() {
+	gin.SetMode(gin.DebugMode)
 	if err := db.InitDB(); err != nil {
 		panic("Failed to connect to database: " + err.Error())
 	}

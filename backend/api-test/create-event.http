@@ -1,11 +1,12 @@
 POST http://localhost:8080/events
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Inlhc2gxQGdtYWlsLmNvbSIsImV4cCI6MTcyNTgxNTYzMiwidXNlcklkIjo3fQ.7C5GXXWF6YwHXYB1HhsO2hgMNIfcD5znqnL4FNsVr6k
 
 {
-    "name": "Event 5",
+    "name": "Event 1",
     "Description": "This is event 5",
-    "location": "Location 5",
-    "organizer": "Organizer 5",
+    "location": "Location 1",
+    "organizer": "Organizer 1",
     "startTime": "2025-10-26T15:40:00.00Z"
     
 }

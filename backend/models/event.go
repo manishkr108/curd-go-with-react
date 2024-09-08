@@ -2,7 +2,6 @@ package models
 
 import (
 	"backend/db"
-	"log"
 	"time"
 )
 
@@ -12,8 +11,10 @@ type Event struct {
 	Description string    `json:"description" binding:"required"`
 	Location    string    `json:"location" binding:"required"`  // location of the event
 	StartTime   time.Time `json:"startTime" binding:"required"` // start time of the event
-	UserID      int       `json:"user_id"`
+	UserID      int64     `json:"user_id"`
 }
+
+var event = []Event{}
 
 func (e *Event) Save() error {
 	query := `INSERT INTO events(name, description, location, startTime, user_id)
@@ -40,7 +41,7 @@ func (e *Event) Save() error {
 func GetAllEvents() ([]Event, error) {
 	query := "SELECT id, name, description, location, startTime, user_id FROM events"
 	rows, err := db.DB.Query(query)
-	log.Print(rows)
+
 	if err != nil {
 		return nil, err
 	}
@@ -91,5 +92,20 @@ func (event Event) Update() error {
 	defer stmt.Close()
 
 	_, err = stmt.Exec(event.Name, event.Description, event.Location, event.StartTime, event.ID)
+	return err
+}
+
+func (event Event) Delete() error {
+	query := "DELETE FROM events WHERE id = ?"
+
+	stmt, err := db.DB.Prepare(query)
+
+	if err != nil {
+		return err
+	}
+
+	defer stmt.Close()
+
+	_, err = stmt.Exec(event.ID)
 	return err
 }
