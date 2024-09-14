@@ -1,12 +1,12 @@
 POST http://localhost:8080/events
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Inlhc2gxQGdtYWlsLmNvbSIsImV4cCI6MTcyNTgxNTYzMiwidXNlcklkIjo3fQ.7C5GXXWF6YwHXYB1HhsO2hgMNIfcD5znqnL4FNsVr6k
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Inlhc2gxQGdtYWlsLmNvbSIsImV4cCI6MTcyNTgyMjgwNiwidXNlcklkIjo3fQ.8IOUCG9NHq5g7kE8kTpzdIp6zZ2MqWQURWRTKV5TN_E
 
 {
-    "name": "Event 1",
-    "Description": "This is event 5",
-    "location": "Location 1",
-    "organizer": "Organizer 1",
+    "name": "Event test only",
+    "Description": "This is event only",
+    "location": "Location Noida",
+    "organizer": "Organizer Manish",
     "startTime": "2025-10-26T15:40:00.00Z"
     
 }
